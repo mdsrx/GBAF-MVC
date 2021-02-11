@@ -24,7 +24,7 @@
 <section class="bloc-content">
 	<h2>Acteurs et Partenaires</h2>
 	<?php
-	//while ($partner = $partners->fetch()) {
+	while ($partner = $partners->fetch()) {
 	?>
 	<li>
 		<div class="logo_partner">
@@ -33,17 +33,34 @@
 		<div class="text_partner">
 			<h3><?= $partner['acteur'] ?></h3>
 			<p>
-				<?= substr(htmlspecialchars($donnees['description']), 0, strpos(htmlspecialchars($donnees['description']), ".", 1) + 1) . ' [...]' ?>
+				<?= substr(htmlspecialchars($partner['description']), 0, strpos(htmlspecialchars($partner['description']), ".", 1) + 1) . ' [...]' ?>
 			</p>
 			<div class="likes_display">
-				<!-- Affichage likes & commentaires -->
+				<div class="vote">
+					<p>
+						<img src="public/images/like.png" alt="Icône J'aime"/>
+						<?= ?>
+					</p>
+				</div>
+				<div class="vote">
+					<p>
+						<img src="public/images/dislike.png" alt="Icône Je n'aime pas"/>
+						<?= ?>
+					</p>
+				</div>				
+				<div class="vote">
+					<p>
+						<img src="public/images/comment.png" alt="Icône Commentaires"/>
+						<?= ?>
+					</p>
+				</div>
 			</div>
+			<a href="#?<?= $partner['id_acteur'] ?>" class="button">Afficher la suite ></a>
 		</div>
-		<a href="#?<?= $partner['id_acteur'] ?>">Afficher la suite ></a>
 	</li>
 	<?php
-	//}
-	//$partners->closeCursor();
+	}
+	$partners->closeCursor();
 	?>
 </section>
 <?php 

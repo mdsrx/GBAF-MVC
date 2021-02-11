@@ -1,6 +1,7 @@
 <?php
 
 require_once ("model/ConnectionManager.php");
+require_once ("model/PartnersManager.php");
 
 function homepage() {
 	require('view/frontend/connectionView.php');
@@ -39,10 +40,14 @@ function logout () {
 }
 
 function listPartners() {
+	$partnersManager = new PartnersManager();
+
+	$partners = $partnersManager->getPartners();
+
 	require ('view/frontend/listPartnersView.php');
 }
 
-function partnerDisplay() {
+function partnerDisplay($id) {
 	
 }
 
