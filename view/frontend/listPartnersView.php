@@ -24,7 +24,7 @@
 <section class="bloc-content">
 	<h2>Acteurs et Partenaires</h2>
 	<?php
-	while ($partner = $partners->fetch()) {
+	//while ($partner = $partners->fetch()) {
 	?>
 	<li>
 		<div class="logo_partner">
@@ -42,8 +42,8 @@
 		<a href="#?<?= $partner['id_acteur'] ?>">Afficher la suite ></a>
 	</li>
 	<?php
-	}
-	$partners->closeCursor();
+	//}
+	//$partners->closeCursor();
 	?>
 </section>
 <?php 

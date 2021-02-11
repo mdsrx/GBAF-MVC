@@ -22,6 +22,8 @@ try {
 				}
 			} else if ($_GET['action'] == "profile") {
 				profile();
+			} else if ($_GET['action'] == "logout") {
+				logout();
 			} else {
 				listPartners();
 			}

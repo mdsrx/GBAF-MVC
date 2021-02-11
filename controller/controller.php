@@ -31,6 +31,13 @@ function login ($username, $password) {
 	}
 }
 
+function logout () {
+	$connectManager = new ConnectionManager();
+
+	$connectManager->logout();
+	header('Location: index.php');
+}
+
 function listPartners() {
 	require ('view/frontend/listPartnersView.php');
 }
@@ -40,7 +47,7 @@ function partnerDisplay() {
 }
 
 function profile() {
-	
+	require('view/frontend/profileView.php');
 }
 
 ?>

@@ -33,6 +33,11 @@ class ConnectionManager extends Manager
 		$_SESSION['lastname'] = $user['nom'];
 		$_SESSION['username'] = $usrname; 
 	}
+
+	public function logout() {
+		$_SESSION = array();
+		session_destroy();
+	}
 }
 
 ?>
