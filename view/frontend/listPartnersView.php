@@ -39,19 +39,19 @@
 				<div class="vote">
 					<p>
 						<img src="public/images/like.png" alt="Icône J'aime"/>
-						<?= ?>
+						<?= " " ?>
 					</p>
 				</div>
 				<div class="vote">
 					<p>
 						<img src="public/images/dislike.png" alt="Icône Je n'aime pas"/>
-						<?= ?>
+						<?= " " ?>
 					</p>
 				</div>				
 				<div class="vote">
 					<p>
 						<img src="public/images/comment.png" alt="Icône Commentaires"/>
-						<?= ?>
+						<?= " " ?>
 					</p>
 				</div>
 			</div>

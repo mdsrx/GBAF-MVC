@@ -38,6 +38,41 @@ class ConnectionManager extends Manager
 		$_SESSION = array();
 		session_destroy();
 	}
+
+	public function verifyPassword($pass, $passconfirm) {
+		if ($pass == $passconfirm)
+			$verifPass = true;
+		else
+			$verifPass = false;
+		return $verifPass;
+	}
+
+	public function verifyUsername($username) {
+		$db = $this->dbConnect();
+		$userExists = false;
+
+		$requestUser = $db->query("SELECT username FROM membres WHERE username ='". $username . "'");
+		while ($user = $requestUser->fetch()) {
+			$userExists = true;
+		}
+		return $userExists;
+	}
+
+	public function register($lastname, $firstname, $username, $password, $question, $answer) {
+		$db = $this->dbConnect();
+
+		$passHash = password_hash($password, PASSWORD_DEFAULT);
+
+		$requestUser = $db->prepare('INSERT INTO membres(nom, prenom, username, password, question, reponse) VALUES (:lastname, :firstname, :username, :pass, :question, :answer)');
+		$requestUser->execute(array(
+			'lastname' => $lastname,
+			'firstname' => $firstname,
+			'username' => $username,
+			'pass' => $passHash,
+			'question' => $question,
+			'answer' => $answer
+		));
+	}
 }
 
 ?>

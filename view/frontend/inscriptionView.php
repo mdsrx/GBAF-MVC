@@ -18,7 +18,7 @@
 		*/
 		?>
 	</div>
-	<form method="post" action="#">
+	<form method="post" action="index.php?action=registeruser">
 		<p>
 			<label for="lastname">Nom</label>
 			<input type="text" name="lastname" id="lastname" maxlength="255" required />

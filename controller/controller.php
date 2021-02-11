@@ -11,7 +11,35 @@ function register () {
 	require ('view/frontend/inscriptionView.php');
 }
 
+function registerUser ($lastname, $firstname, $username, $pass, $passconfirm, $question, $answer) {
+	$registerManager = new ConnectionManager();
+
+	$lname = htmlspecialchars($lastname);
+	$fname = htmlspecialchars($firstname);
+	$uname = htmlspecialchars($username);
+	$pwd = htmlspecialchars($pass);
+	$pwdconfirm = htmlspecialchars($passconfirm);
+	$qstion = htmlspecialchars($question);
+	$aswr = htmlspecialchars($answer);
+
+	$verifPass = $registerManager->verifyPassword($pwd, $pwdconfirm);
+	$userExists = $registerManager->verifyUsername($uname);
+	if ($verifPass) {
+		if (!$userExists) {
+			$registerManager->register($lname, $fname, $uname, $pwd, $qstion, $aswr);
+			header('Location: index.php');
+		} else {
+			throw new Exception("User already exists.", 1);
+		}
+	} else {
+		throw new Exception("Passwords aren't the same.");
+	}
+}
+
 function forgotten () {
+	/*
+	** TO DO
+	*/
 	require ('view/frontend/forgottenView.php');
 }
 
@@ -48,10 +76,16 @@ function listPartners() {
 }
 
 function partnerDisplay($id) {
-	
+	/*
+	** TO DO
+	*/
+	require ('view/frontend/partnerView.php');
 }
 
 function profile() {
+	/*
+	** TO DO
+	*/
 	require('view/frontend/profileView.php');
 }
 

@@ -31,13 +31,19 @@ try {
 			// utilisateur non connecté
 			if ($_GET['action'] == 'register') {
 				register();
+			} else if ($_GET['action'] == 'registeruser') {
+				if (isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['passconfirm']) && isset($_POST['question']) && isset($_POST['answer'])) {
+					registerUser($_POST['lastname'], $_POST['firstname'], $_POST['username'], $_POST['pass'], $_POST['passconfirm'], $_POST['question'], $_POST['answer']);
+				} else {
+					throw new Exception("All fields not complete.");
+				}
 			} else if ($_GET['action'] == "forgotten") {
 				forgotten();
 			} else if ($_GET['action'] == "login") {
 				if (isset($_POST['username']) && isset($_POST['pass'])) {
 					login($_POST['username'], $_POST['pass']);
 				} else {
-					throw new Exception("No login or password");
+					throw new Exception("No login or password.");
 				}
 			} else {
 				homepage();
