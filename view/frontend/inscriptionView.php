@@ -50,4 +50,7 @@
 		<input type="submit" class="button" name="inscription" value="S'inscrire >" />
 	</form>	
 </section>
-<?php $content = ob_get_clean(); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

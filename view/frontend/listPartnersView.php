@@ -46,4 +46,7 @@
 	$partners->closeCursor();
 	?>
 </section>
-<?php $content = ob_get_clean(); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

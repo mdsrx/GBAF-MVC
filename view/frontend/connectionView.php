@@ -40,4 +40,7 @@
 		<a class="button" href="#">S'inscrire ></a>
 	</p>
 </section>
-<?php $content = ob_get_clean(); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>

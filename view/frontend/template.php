@@ -9,6 +9,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="public/css/style.css">
+		<link rel="icon" type="image/png" href="public/images/LOGO_GBAF_ROUGE.png">
 		<title><?= $title ?></title>
 	</head>
 	<body>

@@ -47,4 +47,7 @@
 		<input type="submit" class="button" name="inscription" value="Mettre à jour les informations >" />
 	</form>
 </div>
-<?php $content = ob_get_clean(); ?>
+<?php 
+$content = ob_get_clean();
+require('template.php'); 
+?>
