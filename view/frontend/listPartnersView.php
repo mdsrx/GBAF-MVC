@@ -19,7 +19,7 @@
 	<p>
 		Vous avez la possibilité de rechercher les informations dont vous avez besoin et de laisser un avis sur les partenaires et acteurs du secteur bancaire, tels que les associations ou les financeurs solidaires.
 	</p>
-	<img src="img/GBAF-illustration.jpg" alt="Illustration de GBAF"/>
+	<img src="public/images/GBAF-illustration.jpg" alt="Illustration de GBAF"/>
 </section>
 <section class="bloc-content">
 	<h2>Acteurs et Partenaires</h2>

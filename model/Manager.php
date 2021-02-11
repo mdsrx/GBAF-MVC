@@ -9,7 +9,9 @@ class Manager
 		$sqlPassword = '';	
 		$dbName      = 'gbaf';
 
-		$bdd = new PDO('mysql:host='.$sqlHost.';dbname='.$dbName.';charset=utf8',$sqlUser,$sqlPassword) or die($bdd->errorInfo());
+		$db = new PDO('mysql:host='.$sqlHost.';dbname='.$dbName.';charset=utf8',$sqlUser,$sqlPassword) or die($bdd->errorInfo());
+
+		return $db;
 	}
 }
 

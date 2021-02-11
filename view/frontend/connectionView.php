@@ -16,7 +16,7 @@
 		*/
 		?>
 	</div>
-	<form method="post" action="#">
+	<form method="post" action="index.php?action=login">
 		<p>
 			<label for="username">Username</label>
 			<input type="text" name="username" id="username" maxlength="255" autocomplete="username" required />
@@ -28,7 +28,7 @@
 		<input type="submit" name="connexion" value="Se connecter >" class="button" />
 	</form>
 	<p>
-		<a href="#"><em>Mot de passe oublié ?</em></a>
+		<a href="index.php?action=forgotten"><em>Mot de passe oublié ?</em></a>
 	</p>
 </section>
 <!-- Inscription -->

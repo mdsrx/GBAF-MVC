@@ -1,7 +1,17 @@
 <header>
 	<div class="container">
 		<div id="logo_container">
+			<?php
+				if (isset($_SESSION['id_user'])) {
+			?>
+			<a href="index.php?action=listpartners"><img src="public/images/LOGO_GBAF_ROUGE.png" alt="Logo GBAF"/></a>
+			<?php
+				} else {
+			?>
 			<a href="index.php"><img src="public/images/LOGO_GBAF_ROUGE.png" alt="Logo GBAF"/></a>
+			<?php
+				}
+			?>
 			<a href="index.php"><h1>Groupement Banque Assurance Français</h1></a>
 		</div>
 		<div id="connected">
