@@ -37,7 +37,7 @@
 	<p>Pour profiter de nos services, créez dès à présent un compte sur l'extranet de GBAF.</p>
 	
 	<p>
-		<a class="button" href="#">S'inscrire ></a>
+		<a class="button" href="index.php?action=register">S'inscrire ></a>
 	</p>
 </section>
 <?php 

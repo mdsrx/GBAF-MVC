@@ -15,8 +15,8 @@ try {
 			//
 		} else {
 			// utilisateur non connecté
-			if ($_GET['action'] == 'inscription') {
-
+			if ($_GET['action'] == 'register') {
+				register();
 			} else {
 				homepage();
 			}
