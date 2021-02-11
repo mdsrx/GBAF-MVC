@@ -99,7 +99,7 @@ function profileUpdate($id_user, $lname, $fname, $uname, $password, $question, $
 	$qstion = htmlspecialchars($question);
 	$answr = htmlspecialchars($answer);
 
-	$passHash = $profileManager->getPasswordHash($id_user, $pass);
+	$passHash = $profileManager->getPasswordHash($pass);
 	$profileManager->updateUserInfos($id_user, $lastname, $firstname, $username, $passHash, $qstion, $answr);
 	$profileManager->updateUserSession($lastname, $firstname, $username);
 	header('Location: index.php?action=profile');

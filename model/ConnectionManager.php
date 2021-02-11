@@ -88,19 +88,8 @@ class ConnectionManager extends Manager
 		return $user;
 	}
 
-	public function getPasswordHash($id_user, $pass) {
-		$db = $this->dbConnect();
-
-		$requestPass = $db->prepare('SELECT password FROM membres WHERE id_user = :id_user');
-		$requestPass->execute(array(
-			'id_user' => $id_user
-		));
-		$resultPass = $requestPass->fetch();
-		if ($pass == $resultPass['password']) {
-			$passHash = $pass;
-		} else {
-			$passHash = password_hash($pass, PASSWORD_DEFAULT);
-		}
+	public function getPasswordHash($pass) {
+		$passHash = password_hash($pass, PASSWORD_DEFAULT);
 		return $passHash;
 	}
 

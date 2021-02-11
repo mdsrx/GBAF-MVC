@@ -33,8 +33,8 @@
 			<input type="text" name="username" id="username" maxlength="255" value="<?php echo $user['username'] ?>" required />
 		</p>
 		<p>
-			<label for="pass">Mot de passe</label>
-			<input type="password" name="pass" id="pass" maxlength="255" value="<?php echo $user['password'] ?>" required />
+			<label for="pass">Nouveau mot de passe</label>
+			<input type="password" name="pass" id="pass" maxlength="255" required />
 		</p>
 		<p>
 			<label for="question">Question secrète</label>
