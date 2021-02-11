@@ -75,10 +75,12 @@ function listPartners() {
 	require ('view/frontend/listPartnersView.php');
 }
 
-function partnerDisplay($id) {
-	/*
-	** TO DO
-	*/
+function partnerDisplay($id_partner) {
+	$partnersManager = new PartnersManager();
+
+	$partner = $partnersManager->getPartner($id_partner);
+	$comments = $partnersManager->getComments($id_partner);
+
 	require ('view/frontend/partnerView.php');
 }
 

@@ -55,7 +55,7 @@
 					</p>
 				</div>
 			</div>
-			<a href="#?<?= $partner['id_acteur'] ?>" class="button">Afficher la suite ></a>
+			<a href="index.php?action=partner&amp;id=<?= $partner['id_acteur'] ?>" class="button">Afficher la suite ></a>
 		</div>
 	</li>
 	<?php
