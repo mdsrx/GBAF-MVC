@@ -16,7 +16,7 @@
 		*/
 		?>
 	</div>
-	<form method="post" action="#">
+	<form method="post" action="index.php?action=profileupdate">
 		<p>
 			<input type="hidden" name="id_user" value="<?php echo $user['id_user']; ?>">
 		</p>

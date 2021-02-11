@@ -83,10 +83,26 @@ function partnerDisplay($id) {
 }
 
 function profile() {
-	/*
-	** TO DO
-	*/
+	$profileManager = new ConnectionManager();
+
+	$user = $profileManager->getUserInfos($_SESSION['id_user']);
 	require('view/frontend/profileView.php');
+}
+
+function profileUpdate($id_user, $lname, $fname, $uname, $password, $question, $answer) {
+	$profileManager = new ConnectionManager();
+
+	$lastname = htmlspecialchars($lname);
+	$firstname = htmlspecialchars($fname);
+	$username = htmlspecialchars($uname);
+	$pass = htmlspecialchars($password);
+	$qstion = htmlspecialchars($question);
+	$answr = htmlspecialchars($answer);
+
+	$passHash = $profileManager->getPasswordHash($id_user, $pass);
+	$profileManager->updateUserInfos($id_user, $lastname, $firstname, $username, $passHash, $qstion, $answr);
+	$profileManager->updateUserSession($lastname, $firstname, $username);
+	header('Location: index.php?action=profile');
 }
 
 ?>

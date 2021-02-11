@@ -21,7 +21,13 @@ try {
 					throw new Exception("No partner called.");
 				}
 			} else if ($_GET['action'] == "profile") {
-				profile();
+					profile();
+			} else if ($_GET['action'] == "profileupdate") {
+				if (isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['question']) && isset($_POST['answer'])) {
+					profileUpdate($_SESSION['id_user'], $_POST['lastname'], $_POST['firstname'], $_POST['username'], $_POST['pass'], $_POST['question'], $_POST['answer']);
+				} else {
+					throw new Exception("All fields not complete.");
+				}
 			} else if ($_GET['action'] == "logout") {
 				logout();
 			} else {

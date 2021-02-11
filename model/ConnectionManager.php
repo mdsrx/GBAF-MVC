@@ -73,6 +73,57 @@ class ConnectionManager extends Manager
 			'answer' => $answer
 		));
 	}
+
+	public function getUserInfos($id_user) {
+		$db = $this->dbConnect();
+
+		$requestUser = $db->prepare('SELECT id_user, nom, prenom, username, password, question, reponse FROM membres WHERE id_user = :id_user');
+		$requestUser->execute(array(
+			'id_user' => $id_user
+		));
+
+		$user = $requestUser->fetch();
+		$requestUser->closeCursor();
+
+		return $user;
+	}
+
+	public function getPasswordHash($id_user, $pass) {
+		$db = $this->dbConnect();
+
+		$requestPass = $db->prepare('SELECT password FROM membres WHERE id_user = :id_user');
+		$requestPass->execute(array(
+			'id_user' => $id_user
+		));
+		$resultPass = $requestPass->fetch();
+		if ($pass == $resultPass['password']) {
+			$passHash = $pass;
+		} else {
+			$passHash = password_hash($pass, PASSWORD_DEFAULT);
+		}
+		return $passHash;
+	}
+
+	public function updateUserInfos($id_user, $lname, $fname, $username, $password, $question, $answer) {
+		$db = $this->dbConnect();
+
+		$updateUser = $db->prepare('UPDATE membres SET nom = :nom, prenom = :prenom, username = :username, password = :password, question = :question, reponse = :reponse WHERE id_user = :id_user');
+		$updateUser->execute(array(
+			'nom' => $lname,
+			'prenom' => $fname,
+			'username' => $username,
+			'password' => $password,
+			'question' => $question,
+			'reponse' => $answer,
+			'id_user' => $id_user
+		));
+	}
+
+	public function updateUserSession($lastname, $firstname, $username) {
+		$_SESSION['firstname'] = $firstname;
+		$_SESSION['lastname'] = $lastname;
+		$_SESSION['username'] = $username;
+	}
 }
 
 ?>
